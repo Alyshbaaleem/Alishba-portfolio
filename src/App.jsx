@@ -19,8 +19,8 @@ function App() {
     // REPLACE 'YOUR_TEMPLATE_ID' AND 'YOUR_PUBLIC_KEY' WITH YOUR ACTUAL EMAILJS VALUES
     // You already provided Service ID: service_juo8088
     emailjs
-      .sendForm('service_juo8088', 'YOUR_TEMPLATE_ID', form.current, {
-        publicKey: 'YOUR_PUBLIC_KEY',
+      .sendForm('service_juo8088', 'template_3mk6egw', form.current, {
+        publicKey: 'f15txlyeZ1gfsBiSJ',
       })
       .then(
         () => {
