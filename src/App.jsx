@@ -38,12 +38,12 @@ function App() {
   }, []);
 
   const projects = [
-    { 
-      id: 1, 
-      title: "MedTrack Pro (Flutter)", 
+    {
+      id: 1,
+      title: "MedTrack Pro (Flutter)",
       desc: "A mission-critical medicine reminder app featuring local notifications and a minimalist user interface.",
       category: "Web Apps", // Using Web Apps for now as filter matches
-      image: project1 
+      image: project1
     },
     {
       id: 2,
@@ -52,12 +52,12 @@ function App() {
       category: "Web Apps",
       image: project2,
     },
-    { 
-      id: 3, 
-      title: "Aptech Connect", 
+    {
+      id: 3,
+      title: "Aptech Connect",
       desc: "A centralized campus event management system streamlining student participation and brand engagement.",
-      category: "Design", 
-      image: project3 
+      category: "Design",
+      image: project3
     },
     {
       id: 4,
@@ -120,7 +120,7 @@ function App() {
         </div>
         <div className="hero-content">
           <div className="hero-status">
-             <span className="pulse"></span> Open for Collaborations
+            <span className="pulse"></span> Open for Collaborations
           </div>
           <h1>
             Crafting Digital <span>Experiences</span>
@@ -153,17 +153,16 @@ function App() {
             </h3>
             <div className="about-text-wrapper">
               <p>
-                I am Alishba Aleem, a Software Engineering student dedicated to building 
-                impactful digital solutions. My unique background as a lead <strong>Brand Ambassador</strong> 
-                at Aptech has equipped me with a rare dual perspective: the ability to write robust code 
+                I am Alishba Aleem, a Software Engineering student dedicated to building
+                impactful digital solutions. My unique background as a lead <strong>Brand Ambassador</strong>
+                at Aptech has equipped me with a rare dual perspective: the ability to write robust code
                 and the insight to understand exactly what the end-user needs.
               </p>
               <p>
-                Currently, I am architecting cross-platform mobile apps using the <strong>Flutter ecosystem</strong> 
-                and designing modern, responsive web architectures that prioritize performance and user experience.
+                Currently, I am architecting cross-platform mobile apps using the <strong>Flutter ecosystem</strong> and designing modern, responsive web architectures that prioritize performance and user experience.
               </p>
             </div>
-            
+
             <div className="skills-tags">
               <span>Flutter & Dart Expert (Mastering)</span>
               <span>React & Modern Web</span>
@@ -173,18 +172,18 @@ function App() {
             </div>
 
             <div className="about-highlights">
-                <div className="highlight-item">
-                  <i className="fas fa-shield-alt"></i>
-                  <span>Architecture First Approach</span>
-                </div>
-                <div className="highlight-item">
-                  <i className="fas fa-chart-line"></i>
-                  <span>Conversion Focused Design</span>
-                </div>
-                <div className="highlight-item">
-                  <i className="fas fa-users"></i>
-                  <span>Empathetic User Logic</span>
-                </div>
+              <div className="highlight-item">
+                <i className="fas fa-shield-alt"></i>
+                <span>Architecture First Approach</span>
+              </div>
+              <div className="highlight-item">
+                <i className="fas fa-chart-line"></i>
+                <span>Conversion Focused Design</span>
+              </div>
+              <div className="highlight-item">
+                <i className="fas fa-users"></i>
+                <span>Empathetic User Logic</span>
+              </div>
             </div>
           </div>
         </div>
@@ -195,28 +194,28 @@ function App() {
         <div className="container">
           <h2 className="section-title">Milestones</h2>
           <div className="experience-timeline">
-              <div className="timeline-item">
-                  <div className="timeline-dot"></div>
-                  <div className="timeline-content">
-                    <div className="exp-header">
-                        <div>
-                          <h3>Lead Brand Ambassador</h3>
-                          <h4>Aptech Metro Star Gate</h4>
-                        </div>
-                        <span className="exp-date">Jan 2026 - Present</span>
-                    </div>
-                    <ul className="exp-bullets">
-                        <li>Designing and executing marketing strategies to enhance student enrollment and engagement.</li>
-                        <li>Facilitating academic seminars and representing the institute at key community events.</li>
-                        <li>Bridging the gap between technical curriculum and student career aspirations.</li>
-                    </ul>
-                    <div className="exp-tags">
-                        <span>Leadership</span>
-                        <span>Strategic Marketing</span>
-                        <span>Event Coordination</span>
-                    </div>
+            <div className="timeline-item">
+              <div className="timeline-dot"></div>
+              <div className="timeline-content">
+                <div className="exp-header">
+                  <div>
+                    <h3>Lead Brand Ambassador</h3>
+                    <h4>Aptech Metro Star Gate</h4>
                   </div>
+                  <span className="exp-date">Jan 2026 - Present</span>
+                </div>
+                <ul className="exp-bullets">
+                  <li>Designing and executing marketing strategies to enhance student enrollment and engagement.</li>
+                  <li>Facilitating academic seminars and representing the institute at key community events.</li>
+                  <li>Bridging the gap between technical curriculum and student career aspirations.</li>
+                </ul>
+                <div className="exp-tags">
+                  <span>Leadership</span>
+                  <span>Strategic Marketing</span>
+                  <span>Event Coordination</span>
+                </div>
               </div>
+            </div>
           </div>
         </div>
       </section>
@@ -245,7 +244,7 @@ function App() {
                     alt={project.title}
                   />
                   <div className="project-overlay">
-                     <span className="view-project">Interaction Design</span>
+                    <span className="view-project">Interaction Design</span>
                   </div>
                 </div>
                 <div className="project-info">
@@ -266,11 +265,11 @@ function App() {
             <div className="contact-details">
               <h2 className="section-title left">Let's Build the Future</h2>
               <p>
-                Available for freelance opportunities, open-source collaborations, 
-                and full-time engineering roles. Let's transform your vision into 
+                Available for freelance opportunities, open-source collaborations,
+                and full-time engineering roles. Let's transform your vision into
                 a high-performance digital reality.
               </p>
-              
+
               <div className="info-list">
                 <div className="info-item">
                   <i className="fas fa-paper-plane"></i>
@@ -300,7 +299,7 @@ function App() {
                 </a>
               </div>
             </div>
-            
+
             <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
               <div className="form-group">
                 <input type="text" placeholder="Full Name" required />
