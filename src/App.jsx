@@ -1,5 +1,6 @@
-﻿import React, { useState } from "react";
+﻿import React, { useState, useRef } from "react";
 import "./Portfolio.css";
+import emailjs from '@emailjs/browser';
 
 // Import images
 import project1 from "./assets/project1.png";
@@ -10,6 +11,29 @@ import project4 from "./assets/project4.png";
 function App() {
   const [filter, setFilter] = useState("All");
   const [activeHash, setActiveHash] = useState("#home");
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    // REPLACE 'YOUR_TEMPLATE_ID' AND 'YOUR_PUBLIC_KEY' WITH YOUR ACTUAL EMAILJS VALUES
+    // You already provided Service ID: service_juo8088
+    emailjs
+      .sendForm('service_juo8088', 'YOUR_TEMPLATE_ID', form.current, {
+        publicKey: 'YOUR_PUBLIC_KEY',
+      })
+      .then(
+        () => {
+          console.log('SUCCESS!');
+          alert("Message sent successfully!");
+          e.target.reset();
+        },
+        (error) => {
+          console.log('FAILED...', error.text);
+          alert("Failed to send message. Please check your configuration.");
+        },
+      );
+  };
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -303,14 +327,14 @@ function App() {
 
             <form
               className="contact-form"
-              action="https://formspree.io/f/mpwazqrl"
-              method="POST"
+              ref={form}
+              onSubmit={sendEmail}
             >
               <div className="form-group">
-                <input type="text" name="name" placeholder="Full Name" required />
+                <input type="text" name="user_name" placeholder="Full Name" required />
               </div>
               <div className="form-group">
-                <input type="email" name="email" placeholder="Email Address" required />
+                <input type="email" name="user_email" placeholder="Email Address" required />
               </div>
               <div className="form-group">
                 <textarea name="message" placeholder="Describe your project or inquiry..." rows="5" required></textarea>
