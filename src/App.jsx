@@ -274,7 +274,9 @@ function App() {
                   <i className="fas fa-paper-plane"></i>
                   <div>
                     <label>Inquiries</label>
-                    <span>alyshbaaleem@gmail.com</span>
+                    <a href="mailto:alyshbaaleem@gmail.com" style={{ color: "inherit", textDecoration: "none" }}>
+                      alyshbaaleem@gmail.com
+                    </a>
                   </div>
                 </div>
                 <div className="info-item">
@@ -299,15 +301,19 @@ function App() {
               </div>
             </div>
 
-            <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
+            <form
+              className="contact-form"
+              action="https://formspree.io/f/mpwazqrl"
+              method="POST"
+            >
               <div className="form-group">
-                <input type="text" placeholder="Full Name" required />
+                <input type="text" name="name" placeholder="Full Name" required />
               </div>
               <div className="form-group">
-                <input type="email" placeholder="Email Address" required />
+                <input type="email" name="email" placeholder="Email Address" required />
               </div>
               <div className="form-group">
-                <textarea placeholder="Describe your project or inquiry..." rows="5" required></textarea>
+                <textarea name="message" placeholder="Describe your project or inquiry..." rows="5" required></textarea>
               </div>
               <button type="submit" className="btn btn-primary">
                 Send Message <i className="fas fa-rocket"></i>
