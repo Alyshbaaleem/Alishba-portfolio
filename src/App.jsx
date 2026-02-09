@@ -20,7 +20,7 @@ function App() {
     // You already provided Service ID: service_juo8088
     emailjs
       .sendForm('service_juo8088', 'template_3mk6egw', form.current, {
-        publicKey: 'f15txlyeZ1gfsBiSJ',
+        publicKey: 'kZ4SbGIfgIaZ6of8wW5QF',
       })
       .then(
         () => {
