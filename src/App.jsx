@@ -16,11 +16,13 @@ function App() {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    // REPLACE 'YOUR_TEMPLATE_ID' AND 'YOUR_PUBLIC_KEY' WITH YOUR ACTUAL EMAILJS VALUES
-    // You already provided Service ID: service_juo8088
+    // Correct configuration from screenshots:
+    // Service ID: service_juo8088
+    // Template ID: template_oalqpmm
+    // Public Key: f15txlyeZ1gfsBiSJ
     emailjs
-      .sendForm('service_juo8088', 'template_3mk6egw', form.current, {
-        publicKey: 'kZ4SbGIfgIaZ6of8wW5QF',
+      .sendForm('service_juo8088', 'template_oalqpmm', form.current, {
+        publicKey: 'f15txlyeZ1gfsBiSJ',
       })
       .then(
         () => {
