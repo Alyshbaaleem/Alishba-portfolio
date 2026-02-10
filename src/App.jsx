@@ -321,9 +321,7 @@ function App() {
                 <a href="https://github.com/Alyshbaaleem" title="GitHub" target="_blank" rel="noopener noreferrer">
                   <i className="fab fa-github"></i>
                 </a>
-                <a href="#" title="Behance">
-                  <i className="fab fa-behance"></i>
-                </a>
+
               </div>
             </div>
 
