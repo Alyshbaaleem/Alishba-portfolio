@@ -47,6 +47,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage> {
   final ScrollController _scrollController = ScrollController();
   final GlobalKey _heroKey = GlobalKey();
   final GlobalKey _aboutKey = GlobalKey();
+  final GlobalKey _experienceKey = GlobalKey();
   final GlobalKey _projectKey = GlobalKey();
   final GlobalKey _contactKey = GlobalKey();
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
@@ -136,6 +137,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage> {
               children: [
                 _buildHeroSection(isMobile),
                 _buildAboutSection(isMobile),
+                _buildExperienceSection(isMobile),
                 _buildProjectSection(isMobile),
                 _buildContactSection(isMobile),
                 const SizedBox(height: 50), // Spacing after contact
@@ -207,6 +209,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage> {
           const SizedBox(height: 20),
           _drawerNavItem('Home', Icons.home_filled, () => _scrollToSection(_heroKey)),
           _drawerNavItem('About Me', Icons.person_outline, () => _scrollToSection(_aboutKey)),
+          _drawerNavItem('Experience', Icons.history_edu, () => _scrollToSection(_experienceKey)),
           _drawerNavItem('Projects', Icons.layers_outlined, () => _scrollToSection(_projectKey)),
           _drawerNavItem('Contact', Icons.email_outlined, () => _scrollToSection(_contactKey)),
           
@@ -263,6 +266,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage> {
               const Spacer(),
               _navItem('Home', () => _scrollToSection(_heroKey)),
               _navItem('About', () => _scrollToSection(_aboutKey)),
+              _navItem('Journey', () => _scrollToSection(_experienceKey)),
               _navItem('Projects', () => _scrollToSection(_projectKey)),
               _navItem('Contact', () => _scrollToSection(_contactKey)),
               const SizedBox(width: 20),
@@ -277,18 +281,26 @@ class _PortfolioHomePageState extends State<PortfolioHomePage> {
   Widget _buildHireButton() {
     return MouseRegion(
       cursor: SystemMouseCursors.click,
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-        decoration: BoxDecoration(
-          gradient: const LinearGradient(colors: [Color(0xFFe69138), Color(0xFFffba60)]),
-          borderRadius: BorderRadius.circular(30),
-          boxShadow: [
-            BoxShadow(color: const Color(0xFFe69138).withOpacity(0.4), blurRadius: 20, offset: const Offset(0, 5)),
-          ],
-        ),
-        child: const Text(
-          'Hire Me',
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, letterSpacing: 1),
+      child: GestureDetector(
+        onTap: () async {
+          final Uri url = Uri.parse('https://alyshbaaleem.github.io/Alishba-portfolio/Alishba_Aleem_Updated_CV_A4.pdf');
+          if (await canLaunchUrl(url)) {
+            await launchUrl(url);
+          }
+        },
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+          decoration: BoxDecoration(
+            gradient: const LinearGradient(colors: [Color(0xFFe69138), Color(0xFFffba60)]),
+            borderRadius: BorderRadius.circular(30),
+            boxShadow: [
+              BoxShadow(color: const Color(0xFFe69138).withOpacity(0.4), blurRadius: 20, offset: const Offset(0, 5)),
+            ],
+          ),
+          child: const Text(
+            'Hire Me',
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, letterSpacing: 1),
+          ),
         ),
       ),
     ).animate(onPlay: (c) => c.repeat(reverse: true)).scale(begin: const Offset(1, 1), end: const Offset(1.05, 1.05), duration: 1.5.seconds);
@@ -376,9 +388,9 @@ class _PortfolioHomePageState extends State<PortfolioHomePage> {
                   color: Colors.white.withOpacity(0.03),
                 ),
                 child: Text(
-                  "FLUTTER ENGINEER & UI DESIGNER",
+                  "FLUTTER ENGINEER & STRATEGIC TECH-MARKETER",
                   style: GoogleFonts.outfit(
-                    fontSize: isMobile ? 14 : 18,
+                    fontSize: isMobile ? 12 : 18,
                     fontWeight: FontWeight.w500,
                     letterSpacing: 4,
                     color: Colors.white70,
@@ -391,7 +403,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage> {
               SizedBox(
                 width: isMobile ? double.infinity : 700,
                 child: Text(
-                  "Creating high-performance, beautiful mobile and web applications with Flutter. Focused on clean architecture and premium user experiences.",
+                  "Merging analytical engineering with human-centric marketing. Focused on creating high-performance, beautiful mobile and web applications with Flutter.",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: isMobile ? 16 : 18,
@@ -561,12 +573,134 @@ class _PortfolioHomePageState extends State<PortfolioHomePage> {
     ).animate().fadeIn().slideX(begin: 0.1);
   }
 
+  Widget _buildExperienceSection(bool isMobile) {
+    return Container(
+      key: _experienceKey,
+      padding: EdgeInsets.symmetric(horizontal: isMobile ? 20 : 100, vertical: isMobile ? 50 : 100),
+      child: Column(
+        children: [
+          _sectionTitle("Journey", "Professional Milestones"),
+          const SizedBox(height: 60),
+          Container(
+            padding: const EdgeInsets.all(40),
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.03),
+              borderRadius: BorderRadius.circular(30),
+              border: Border.all(color: Colors.white.withOpacity(0.05)),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Lead Brand Ambassador",
+                          style: GoogleFonts.playfairDisplay(fontSize: 24, fontWeight: FontWeight.bold, color: const Color(0xFFe69138)),
+                        ),
+                        Text(
+                          "Aptech Metro Star Gate",
+                          style: TextStyle(fontSize: 18, color: Colors.white70),
+                        ),
+                      ],
+                    ),
+                    if (!isMobile)
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFe69138).withOpacity(0.1),
+                          borderRadius: BorderRadius.circular(20),
+                          border: Border.all(color: const Color(0xFFe69138).withOpacity(0.3)),
+                        ),
+                        child: const Text("Jan 2026 - Present", style: TextStyle(color: Color(0xFFe69138), fontWeight: FontWeight.bold)),
+                      ),
+                  ],
+                ),
+                if (isMobile) ...[
+                  const SizedBox(height: 10),
+                  const Text("Jan 2026 - Present", style: TextStyle(color: Color(0xFFe69138), fontWeight: FontWeight.bold)),
+                ],
+                const SizedBox(height: 30),
+                _bulletPoint("Designing and executing marketing strategies to enhance student enrollment and engagement."),
+                _bulletPoint("Facilitating academic seminars and representing the institute at key community events."),
+                _bulletPoint("Bridging the gap between technical curriculum and student career aspirations."),
+                const SizedBox(height: 30),
+                Wrap(
+                  spacing: 10,
+                  runSpacing: 10,
+                  children: [
+                    _tag("Leadership"),
+                    _tag("Strategic Marketing"),
+                    _tag("Event Coordination"),
+                  ],
+                ),
+              ],
+            ),
+          ).animate().fadeIn().slideY(begin: 0.1),
+        ],
+      ),
+    );
+  }
+
+  Widget _bulletPoint(String text) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 12),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Icon(Icons.star, color: Color(0xFFe69138), size: 16),
+          const SizedBox(width: 15),
+          Expanded(child: Text(text, style: const TextStyle(color: Colors.white60, fontSize: 16, height: 1.5))),
+        ],
+      ),
+    );
+  }
+
+  Widget _tag(String text) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      decoration: BoxDecoration(
+        color: Colors.white.withOpacity(0.05),
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: Colors.white10),
+      ),
+      child: Text(text, style: const TextStyle(color: Colors.white38, fontSize: 12)),
+    );
+  }
+
   Widget _buildProjectSection(bool isMobile) {
     final projects = [
-      {'title': 'NeonFit App', 'image': 'assets/projects/f1.png', 'cat': 'Flutter Mobile'},
-      {'title': 'Fintura Dashboard', 'image': 'assets/projects/f2.png', 'cat': 'Flutter Web'},
-      {'title': 'E-Commerce Platform', 'image': 'assets/projects/project1.png', 'cat': 'Social App'},
-      {'title': 'Creative Portfolio', 'image': 'assets/projects/project2.png', 'cat': 'Design'},
+      {
+        'title': 'Shopping-flutter-app',
+        'image': 'assets/projects/project1.png',
+        'cat': 'Mobile Development',
+        'desc': 'A high-performance e-commerce solution with advanced product discovery.',
+        'github': 'https://github.com/Alyshbaaleem/Shopping-flutter-app.git'
+      },
+      {
+        'title': 'Weather-flutter-app',
+        'image': 'assets/projects/project2.png',
+        'cat': 'Mobile Development',
+        'desc': 'A dynamic weather forecasting app powered by GetX state management.',
+        'github': 'https://github.com/Alyshbaaleem/Weather-flutter-app.git'
+      },
+      {
+        'title': 'Grocery-flutter-app',
+        'image': 'assets/projects/project3.png',
+        'cat': 'Mobile Development',
+        'desc': 'A real-time grocery delivery app with localized inventory management.',
+        'github': 'https://github.com/Alyshbaaleem/Grocery-flutter-app.git'
+      },
+      {
+        'title': 'University-flutter-app',
+        'image': 'assets/projects/project4.png',
+        'cat': 'Mobile Development',
+        'desc': 'A comprehensive university management system with modular LMS features.',
+        'github': 'https://github.com/Alyshbaaleem/University-flutter-app.git'
+      },
     ];
 
     return Container(
@@ -654,11 +788,26 @@ class _PortfolioHomePageState extends State<PortfolioHomePage> {
                     style: GoogleFonts.playfairDisplay(fontSize: 28, fontWeight: FontWeight.bold, height: 1.1),
                   ),
                   const SizedBox(height: 10),
+                  Text(
+                    project['desc'] ?? "",
+                    style: TextStyle(color: Colors.white60, fontSize: 14),
+                  ),
+                  const SizedBox(height: 15),
                   Row(
                     children: [
-                      const Text("View Project", style: TextStyle(color: Colors.white70, fontSize: 14)),
-                      const SizedBox(width: 5),
-                      const Icon(Icons.arrow_forward, color: Color(0xFFe69138), size: 16),
+                      GestureDetector(
+                        onTap: () async {
+                          final url = Uri.parse(project['github']!);
+                          if (await canLaunchUrl(url)) await launchUrl(url);
+                        },
+                        child: Row(
+                          children: [
+                            const Text("View Github", style: TextStyle(color: Colors.white70, fontSize: 14)),
+                            const SizedBox(width: 5),
+                            const Icon(Icons.arrow_forward, color: Color(0xFFe69138), size: 16),
+                          ],
+                        ),
+                      ),
                     ],
                   )
                 ],
@@ -698,39 +847,23 @@ class _PortfolioHomePageState extends State<PortfolioHomePage> {
         _contactItem(Icons.email, "alyshbaaleem@gmail.com"),
         _contactItem(Icons.phone, "+92 312 0347329"),
         _contactItem(Icons.location_on, "Karachi, Pakistan"),
-        const SizedBox(height: 20),
-        MouseRegion(
-          cursor: SystemMouseCursors.click,
-          child: GestureDetector(
-            onTap: () async {
-              final Uri url = Uri.parse('https://www.linkedin.com/in/aliishba-aleem-flutter-developer-details-skills?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app');
-              if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
-                throw Exception('Could not launch \$url');
-              }
-            },
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
-              decoration: BoxDecoration(
-                color: const Color(0xFF0077b5),
-                borderRadius: BorderRadius.circular(30),
-                boxShadow: [
-                  BoxShadow(
-                    color: const Color(0xFF0077b5).withOpacity(0.4),
-                    blurRadius: 15,
-                    offset: const Offset(0, 5),
-                  ),
-                ],
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: const [
-                  Icon(Icons.link, color: Colors.white),
-                  SizedBox(width: 10),
-                  Text("Connect on LinkedIn", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
-                ],
-              ),
+        const SizedBox(height: 30),
+        Row(
+          children: [
+            _socialButton(
+              'LinkedIn',
+              const Color(0xFF0077b5),
+              Icons.link,
+              'https://www.linkedin.com/in/aliishba-aleem-flutter-developer-details-skills',
             ),
-          ),
+            const SizedBox(width: 15),
+            _socialButton(
+              'GitHub',
+              const Color(0xFF333333),
+              Icons.code,
+              'https://github.com/Alyshbaaleem',
+            ),
+          ],
         ).animate().fadeIn(delay: 1.seconds),
       ],
     );
@@ -771,6 +904,42 @@ class _PortfolioHomePageState extends State<PortfolioHomePage> {
         Expanded(child: contactForm),
       ];
     }
+  }
+
+  Widget _socialButton(String label, Color color, IconData icon, String url) {
+    return MouseRegion(
+      cursor: SystemMouseCursors.click,
+      child: GestureDetector(
+        onTap: () async {
+          final Uri uri = Uri.parse(url);
+          if (await canLaunchUrl(uri)) {
+            await launchUrl(uri, mode: LaunchMode.externalApplication);
+          }
+        },
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+          decoration: BoxDecoration(
+            color: color,
+            borderRadius: BorderRadius.circular(30),
+            boxShadow: [
+              BoxShadow(
+                color: color.withOpacity(0.4),
+                blurRadius: 15,
+                offset: const Offset(0, 5),
+              ),
+            ],
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(icon, color: Colors.white, size: 18),
+              const SizedBox(width: 8),
+              Text(label, style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 13)),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 
   Widget _contactItem(IconData icon, String text) {
