@@ -1,4 +1,4 @@
-﻿import React, { useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 import "./Portfolio.css";
 import emailjs from '@emailjs/browser';
 
@@ -7,6 +7,7 @@ import project1 from "./assets/project1.png";
 import project2 from "./assets/project2.png";
 import project3 from "./assets/project3.png";
 import project4 from "./assets/project4.png";
+import weatherImg from "./assets/weather_project.png";
 
 function App() {
   const [filter, setFilter] = useState("All");
@@ -66,31 +67,48 @@ function App() {
   const projects = [
     {
       id: 1,
-      title: "MedTrack Pro (Flutter)",
-      desc: "A mission-critical medicine reminder app featuring local notifications and a minimalist user interface.",
-      category: "Web Apps", // Using Web Apps for now as filter matches
-      image: project1
+      title: "Shopping-flutter-app",
+      desc: "A high-performance e-commerce solution with advanced product discovery and seamless checkout flow.",
+      category: "Mobile Development",
+      image: "https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&w=800&q=80",
+      github: "https://github.com/Alyshbaaleem/Shopping-flutter-app.git",
+      live: "https://github.com/Alyshbaaleem/Shopping-flutter-app.git"
     },
     {
       id: 2,
-      title: "NexTrade Dashboard",
-      desc: "High-performance financial analytics portal designed for real-time market tracking and data visualization.",
-      category: "Web Apps",
-      image: project2,
+      title: "Weather-flutter-app",
+      desc: "A dynamic weather forecasting app with real-time updates and localized alerts, powered by GetX state management.",
+      category: "Mobile Development",
+      image: weatherImg,
+      github: "https://github.com/Alyshbaaleem/Weather-flutter-app.git",
+      live: "https://github.com/Alyshbaaleem/Weather-flutter-app.git"
     },
     {
       id: 3,
-      title: "Aptech Connect",
-      desc: "A centralized campus event management system streamlining student participation and brand engagement.",
-      category: "Design",
-      image: project3
+      title: "Grocery-flutter-app",
+      desc: "A real-time grocery delivery app with localized inventory management and intelligent order tracking.",
+      category: "Mobile Development",
+      image: "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800&q=80",
+      github: "https://github.com/Alyshbaaleem/Grocery-flutter-app.git",
+      live: "https://github.com/Alyshbaaleem/Grocery-flutter-app.git"
     },
     {
       id: 4,
-      title: "Strategic Brand Audit",
-      desc: "Comprehensive marketing analysis and digital transformation roadmap for local academic institutions.",
-      category: "Consulting",
-      image: project4,
+      title: "e-commerce",
+      desc: "A robust e-commerce framework featuring scalable product architecture and premium digital assets.",
+      category: "Mobile Development",
+      image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=800&q=80",
+      github: "https://github.com/Alyshbaaleem/e-commerce.git",
+      live: "https://github.com/Alyshbaaleem/e-commerce.git"
+    },
+    {
+      id: 5,
+      title: "University-flutter-app",
+      desc: "A comprehensive university management system with modular LMS features and intuitive student-faculty portals.",
+      category: "Mobile Development",
+      image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80",
+      github: "https://github.com/Alyshbaaleem/University-flutter-app.git",
+      live: "https://github.com/Alyshbaaleem/University-flutter-app.git"
     },
   ];
 
@@ -110,7 +128,7 @@ function App() {
             <a href="#portfolio" className={activeHash === "#portfolio" ? "active" : ""}>Portfolio</a>
             <a href="#contact" className={activeHash === "#contact" ? "active" : ""}>Contact</a>
           </div>
-          <a href="#contact" className="btn btn-nav">Hire Me</a>
+          <a href="/Alishba-portfolio/Alishba_Aleem_Updated_CV_A4.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-nav">Hire Me</a>
         </div>
       </nav>
 
@@ -250,7 +268,7 @@ function App() {
         <div className="container">
           <h2 className="section-title">Showcase</h2>
           <div className="filters">
-            {["All", "Web Apps", "Design", "Consulting"].map((cat) => (
+            {["All", "Mobile Development"].map((cat) => (
               <button
                 key={cat}
                 className={`filter-btn ${filter === cat ? "active" : ""}`}
@@ -276,6 +294,14 @@ function App() {
                   <span className="project-cat">{project.category}</span>
                   <h3>{project.title}</h3>
                   <p>{project.desc}</p>
+                  <div className="project-links">
+                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="btn-project github">
+                      <i className="fab fa-github"></i> GitHub
+                    </a>
+                    <a href={project.live} target="_blank" rel="noopener noreferrer" className="btn-project live">
+                      <i className="fas fa-external-link-alt"></i> View
+                    </a>
+                  </div>
                 </div>
               </div>
             ))}
